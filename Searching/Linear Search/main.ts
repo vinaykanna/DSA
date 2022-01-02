@@ -1,6 +1,6 @@
 class Main {
   constructor() {
-    console.log("hello");
+    console.log("hello sdf");
   }
 }
 
