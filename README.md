@@ -1,2 +1,2 @@
 # DSA
-Data Structures and Algorithms in Typescript
+Data Structures and Algorithms implemented in Typescript
