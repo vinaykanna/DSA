@@ -1,4 +1,4 @@
-let findNumbers = function (nums: number[]): number {
+let findNumbersWithEventNumberDigits = function (nums: number[]): number {
   let result = 0;
   for (let num of nums) {
     let count = 0;
@@ -17,5 +17,5 @@ let findNumbers = function (nums: number[]): number {
   return result;
 };
 
-let result = findNumbers([555, 12]);
+let result = findNumbersWithEventNumberDigits([555, 12]);
 console.log(result);
