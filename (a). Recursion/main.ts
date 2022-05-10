@@ -1,7 +1,9 @@
-class Main {
-  constructor() {
-    console.log("hello");
-  }
+function recursion(i: number, n: number){
+
+    if(i === 10) return //break point
+
+    recursion(i + 1, n)
 }
 
-const main = new Main();
+
+recursion(1, 10);
