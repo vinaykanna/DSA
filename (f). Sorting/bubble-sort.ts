@@ -1,4 +1,4 @@
-// Just like the movement of air bubbles in the water that rise up to the surface, each element of the array move to the end in each iteration
+//Just like the movement of air bubbles in the water that rise up to the surface, each element of the array move to the end in each iteration
 //Swap adjacent elements which are in wrong order
 //For every pass largest element is moved to end
 function bubbleSort(arr: number[]){
