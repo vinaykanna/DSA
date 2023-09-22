@@ -1,5 +1,3 @@
-# Stacks and Queues
-
 ## Stack
 
 A **stack** is a linear data structure that follows the principle of **Last In First Out (LIFO)**. This means the last element inserted inside the stack is removed first.
@@ -217,3 +215,103 @@ public class Main {
 ```
 
 **Circular Queue Implementation :**
+
+```tsx
+public class CircularQueue {
+    private int[] data;
+    private static final int DEFAULT_SIZE = 10;
+
+    private int front = 0;
+    private int end = 0;
+    private int size = 0;
+
+    CircularQueue() {
+        this(DEFAULT_SIZE);
+    }
+
+    CircularQueue(int size) {
+        data = new int[size];
+    }
+
+    public void insert(int value) throws QueueException {
+        if (isFull()) {
+            throw new QueueException("Queue is full");
+        }
+
+        data[end++] = value;
+        end = end % data.length;
+        size++;
+    }
+
+    public int remove() throws QueueException {
+        if (isEmpty()) {
+            throw new QueueException("Queue is Empty");
+        }
+
+        int removed = data[front++];
+        front = front % data.length;
+        size--;
+        return removed;
+    }
+
+    public int peek() throws QueueException {
+        if (isEmpty()) {
+            throw new QueueException("Queue is Empty");
+        }
+
+        return data[front];
+    }
+
+    public boolean isFull() {
+        return size == data.length;
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    public void display() throws QueueException {
+        if (isEmpty()) {
+            throw new QueueException("Queue is Empty");
+        }
+
+        System.out.println("-- Start --");
+
+        int i = front;
+
+        do {
+            System.out.println(data[i]);
+            i++;
+            i = i % data.length;
+        } while (i != end);
+
+        System.out.println("-- end --");
+
+    }
+
+    private class QueueException extends Exception{
+        QueueException(String error){
+            super(error);
+        }
+    }
+}
+
+//========================================
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        CircularQueue queue = new CircularQueue(5);
+        queue.insert(3);
+        queue.insert(10);
+        queue.insert(7);
+        queue.insert(5);
+        queue.insert(4);
+        queue.display();
+        queue.remove();
+        queue.display();
+        queue.insert(19);
+        queue.display();
+    }
+}
+```
