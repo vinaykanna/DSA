@@ -1,5 +1,3 @@
-# Linked List
-
 **A linked list** is a linear data structure in which elements are stored in nodes and each node points to the next node in the list. Unlike arrays, linked lists do not have a fixed size and can grow or shrink as needed. They are commonly used in computer science for implementing dynamic data structures and managing memory allocation.
 
 Like arrays, linked lists are also linear data structures but in linked lists elements are not stored at contiguous memory locations. They can be stored anywhere in the memory but for sequential access, the nodes are linked to each other using pointers.
@@ -557,3 +555,196 @@ public class Main {
 ```
 
 ### Circular Linked List :
+
+```tsx
+public class CLL<T> {
+    private Node<T> head;
+    private Node<T> tail;
+    public int size = 0;
+
+    public void insertFirst(T value) {
+        Node<T> node = new Node<T>(value);
+        node.next = head;
+        head = node;
+
+        if (tail == null) {
+            tail = node;
+        }
+
+        tail.next = node;
+        size += 1;
+    }
+
+    public void insertLast(T value) {
+        if (tail == null) {
+            insertFirst(value);
+            return;
+        }
+
+        Node<T> node = new Node<>(value);
+        tail.next = node;
+        node.next = head;
+        tail = node;
+        size += 1;
+    }
+
+    public void insert(int index, T value) {
+        if (index == 0) {
+            insertFirst(value);
+            return;
+        }
+
+        if (index == size) {
+            insertLast(value);
+            return;
+        }
+
+        Node<T> prevNode = head;
+
+        for (int i = 1; i < index; i++) {
+            prevNode = prevNode.next;
+        }
+
+        Node<T> node = new Node<>(value);
+        node.next = prevNode.next;
+        prevNode.next = node;
+        size += 1;
+    }
+
+    public void deleteFirst() {
+        if (head == null) {
+            return;
+        }
+
+        head = head.next;
+
+        if (head == null) {
+            tail = null;
+        }
+
+        if (tail != null) {
+            tail.next = head;
+        }
+
+        size -= 1;
+    }
+
+    public void deleteLast() {
+        if (size <= 1) {
+            deleteFirst();
+            return;
+        }
+
+        Node<T> secondLast = head;
+
+        while (secondLast.next != tail) {
+            secondLast = secondLast.next;
+        }
+
+        tail = secondLast;
+        tail.next = head;
+        size -= 1;
+    }
+
+    public void delete(int index){
+        if(index == 0){
+             deleteFirst();
+             return;
+        }
+
+        if(size == index){
+            deleteLast();
+            return;
+        }
+
+        Node<T> prevNode = head;
+
+        for (int i = 1; i < index; i++) {
+            prevNode = prevNode.next;
+        }
+
+        prevNode.next =  prevNode.next.next;
+        size -= 1;
+    }
+
+    public int search(T val) {
+        Node<T> node = head;
+
+        for (int i = 1; i <= size; i++) {
+            if (node.value == val) {
+                return i;
+            }
+            node = node.next;
+        }
+
+        return -1;
+    }
+
+    public String find(T val) {
+        Node<T> node = head;
+
+        for (int i = 1; i <= size; i++) {
+            if (node.value == val) {
+                String nextRes = node.next != null ? node.next.value.toString() : "null";
+                String result = "Value - " + node.value + " // " + "Next - " + nextRes;
+                return result;
+            }
+            node = node.next;
+        }
+
+        return null;
+    }
+
+    public void display() {
+        System.out.print("Start => ");
+
+        Node<T> node = head;
+
+        for (int i = 1; i <= size; i++) {
+            System.out.print(node.value + " => ");
+            node = node.next;
+        }
+
+        System.out.println("End");
+    }
+
+    private class Node<T> {
+        private T value;
+        private Node<T> next;
+
+        Node(T value) {
+            this.value = value;
+        }
+    }
+}
+
+//==============================================
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        CLL<Integer> linkedList = new CLL<Integer>();
+
+        linkedList.insertFirst(10);
+        linkedList.insertFirst(5);
+        linkedList.insertFirst(7);
+        linkedList.display();
+        linkedList.insertLast(2);
+        linkedList.insertLast(13);
+        linkedList.display();
+        linkedList.insert(2, 12);
+        linkedList.insert(1, 111);
+        linkedList.insert(0, 14);
+        linkedList.insert(8, 120);
+        linkedList.insert(6, 177);
+        linkedList.display();
+        linkedList.deleteFirst();
+        linkedList.display();
+        linkedList.deleteLast();
+        linkedList.display();
+        linkedList.delete(1);
+        linkedList.display();
+        System.out.println("Search: " + linkedList.find(5));
+    }
+}
+```
