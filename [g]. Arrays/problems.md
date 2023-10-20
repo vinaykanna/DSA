@@ -10,6 +10,7 @@ You can return the answer in any order.
 ```typescript
 function twoSum(nums: number[], target: number): number[] {
   let n = nums.length;
+
   for (let i = 0; i < n; i++) {
     for (let j = i + 1; j < n; j++) {
       if (nums[i] + nums[j] === target) {
@@ -24,15 +25,17 @@ function twoSum(nums: number[], target: number): number[] {
 #### Solution 2 - Better Solution (Using HashMap) :
 ```typescript
 function twoSum(nums: number[], target: number): number[] {
-    let n = nums.length
-    let map = new Map()
+    let n = nums.length;
+    let map = new Map();
+
     for (let i = 0; i < n; i++){
-        map.set(nums[i],i)
+        map.set(nums[i],i);
     }
+
     for (let i = 0; i < n; i++){
         let complement = target - nums[i]
         if(map.get(complement) && map.get(complement) !== i){
-            return [i, map.get(complement)]
+            return [i, map.get(complement)];
         }
     }
     
@@ -43,15 +46,17 @@ function twoSum(nums: number[], target: number): number[] {
 #### Solution 3 - Improved Solution (Using HashMap) :
 ```typescript
 function twoSum(nums: number[], target: number): number[] {
-    let n = nums.length
-    let map = new Map()
+    let n = nums.length;
+    let map = new Map();
+
     for (let i = 0; i < n; i++){
-        let complement = target - nums[i]
+        let complement = target - nums[i];
+
         if(map.has(complement)){
-            return [i, map.get(complement)]
+            return [i, map.get(complement)];
         }
         
-        map.set(nums[i],i)
+        map.set(nums[i],i);
     }
 };
 ```
@@ -66,17 +71,20 @@ Consider the number of unique elements of nums to be k, to get accepted, you nee
 ```typescript
 function removeDuplicates(nums: number[]): number {
   let duplicates = 0;
-  let pos = 1
+  let pos = 1;
+
   for (let i = 1;i < nums.length;i++){
-    if(nums[i] === nums[i-1]){
+    if(nums[i] === nums[i-1]) {
       duplicates = duplicates + 1
       continue;
     }
-    nums[pos] = nums[i]
-    pos = pos + 1
+
+    nums[pos] = nums[i];
+    pos = pos + 1;
   }
-  nums.length = nums.length - duplicates
-  return nums.length
+
+  nums.length = nums.length - duplicates;
+  return nums.length;
 };
 ```
 *Time Complexity = O(n)* ; *Space Complexity = O(1)*
@@ -84,15 +92,18 @@ function removeDuplicates(nums: number[]): number {
 #### Solution 2 :
 ```typescript
 function removeDuplicates(nums: number[]): number {
-  let pos = 1
+  let pos = 1;
+
   for (let i = 1;i < nums.length;i++){
     if(nums[i] === nums[i-1]){
       continue;
     }
-    nums[pos] = nums[i]
-    pos = pos + 1
+
+    nums[pos] = nums[i];
+    pos = pos + 1;
   }
-  return pos
+
+  return pos;
 };
 ```
 *Time Complexity = O(n)* ; *Space Complexity = O(1)*
@@ -100,16 +111,19 @@ function removeDuplicates(nums: number[]): number {
 #### Solution 3 :
 ```typescript
 function removeDuplicates(nums: number[]): number {
-  let pos = 1
+  let pos = 1;
+
   for (let i = 1;i < nums.length;i++){
     if(nums[i] === nums[i-1]){
       continue;
     }
-    nums[pos] = nums[i]
-    pos = pos + 1
+
+    nums[pos] = nums[i];
+    pos = pos + 1;
   }
-  nums.length = pos
-  return pos
+
+  nums.length = pos;
+  return pos;
 };
 ```
 *Time Complexity = O(n)* ; *Space Complexity = O(1)*
