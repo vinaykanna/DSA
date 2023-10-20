@@ -21,7 +21,7 @@ function twoSum(nums: number[], target: number): number[] {
   }
 }
 ```
-*Time Complexity = O(n2)* | *Space Complexity = O(1)*
+*Time Complexity = O(n^2)* ; *Space Complexity = O(1)*
 
 #### Solution 2 - Better Solution (Using HashMap) :
 ```typescript
