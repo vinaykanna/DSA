@@ -1,4 +1,4 @@
-1. [Two Sum](#section-1)
+1. [Two Sum](#two-sum)
 2. Median of Two Sorted Arrays
 3. Remove Duplicates from Sorted Array
 4. Remove Element
