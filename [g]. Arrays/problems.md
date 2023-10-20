@@ -1,6 +1,6 @@
 ## Problems
 1. [Two Sum](#two-sum)
-2. Remove Duplicates from Sorted Array
+2. [Remove Duplicates from Sorted Array](remove-duplicates-from-sorted-array)
 
 ## Two Sum
 Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
