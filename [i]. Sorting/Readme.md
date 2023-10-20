@@ -39,7 +39,7 @@ There are various sorting algorithms that can be used to complete this operation
 
 Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in the wrong order. This algorithm is not suitable for large data sets as its average and worst case time complexity is quite high.
 
-!https://upload.wikimedia.org/wikipedia/commons/c/c8/Bubble-sort-example-300px.gif
+![Alt Text](https://upload.wikimedia.org/wikipedia/commons/c/c8/Bubble-sort-example-300px.gif)
 
 **Implementation :**
 
