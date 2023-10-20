@@ -34,6 +34,7 @@ function twoSum(nums: number[], target: number): number[] {
 
     for (let i = 0; i < n; i++){
         let complement = target - nums[i]
+
         if(map.get(complement) && map.get(complement) !== i){
             return [i, map.get(complement)];
         }
