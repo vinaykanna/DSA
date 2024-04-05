@@ -1,6 +1,6 @@
 # Mathematics
 
-# The Modulo Operator
+## The Modulo Operator
 
 In computing, the modulo operation returns the remainder or signed remainder of a division, after one number is divided by another (called modulus of the operation).
 
@@ -21,7 +21,7 @@ Ex: **253 % 10 = 3**
 
 Ex: **2 % 3 = 3**
 
-# L****ogarithm****
+## L****ogarithm****
 
 **logarithm**, the exponent or power to which a base must be raised to yield a given number. Expressed mathematically, *x* is the logarithm of *n* to the base *b* if *bx* = *n*, in which case one writes *x* = log*b* *n*.
 

@@ -5,7 +5,7 @@ The heap is a special tree-based data structure that satisfies the heap property
 The heap data structure provides efficient operations for maintaining a partially ordered set of elements, making it useful in various algorithms and applications where efficient priority-based operations are required.
 
 
-![Heap representation](./heap_representation.png)
+![Heap representation](./heap_representation.jpg)
 
 Here are the key characteristics of the heap data structure:
 
@@ -18,7 +18,7 @@ Here are the key characteristics of the heap data structure:
 
         > value(parent(i))≥value(i)
 
-    ![Min Heap - Max Heap](./min_max_heap.png)
+        ![Min Heap - Max Heap](./min_max_heap.jpg)
 
 2. **Complete Binary Tree Structure**: Heaps are typically implemented as complete binary trees, which means that every level of the tree, except possibly the last one, is completely filled, and the nodes in the last level are filled from left to right.
 3. **Array Representation**: Heaps can be efficiently represented using arrays. In this representation, the children of the node at index i are located at indices 2i+1 (left child) and 2i+2 (right child), and the parent of the node at index i is located at index [(i-1)/2].

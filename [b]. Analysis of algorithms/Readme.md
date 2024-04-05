@@ -59,7 +59,7 @@ Ex:  1.  $f(n) = 2n^2 + n + 6$
 
 ## Best, average and worst cases
 
-It’s important to analyze an algorithm after writing it to find its efficiency in terms o f time and space in order to improve it if possible.
+It’s important to analyze an algorithm after writing it to find its efficiency in terms of time and space in order to improve it if possible.
 
 When it comes to analyzing algorithms, the asymptotic analysis seems to be best way possible to do so. This is because asymptotic analysis analyzes algorithms in terms of the input size. It checks how are the time and space growing in terms of the input size.
 
