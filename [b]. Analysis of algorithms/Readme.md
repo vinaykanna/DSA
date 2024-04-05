@@ -110,7 +110,7 @@ We can have 3 cases to analyze the algorithm.
 
 ## Comparison of order of growth terms:
 
-$c<loglogn<logn<n^\frac{1}{3}<n^\frac{1}{2}<n<n^2<n^3<n^4<2^n<n^n$
+![Untitled-2022-09-07-2215.png](./comparision.png)
 
 ## Asymptotic Notations
 
