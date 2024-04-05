@@ -14,7 +14,7 @@ In many situations, hash tables turn out to be on average more efficient than s
 
 Under reasonable assumptions, the average time required to search for an element in a hash table is **O(1)**
 
-![Hash_table_3_1_1_0_1_0_0_SP.svg.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c0c6e902-c815-4ff4-b034-b73e995adb2b/Hash_table_3_1_1_0_1_0_0_SP.svg.png)
+![hash_table.png](./hash_table.png)
 
 ### **Hash function**
 
@@ -36,7 +36,7 @@ We can resolve the hash collision using one of the following techniques.
 
 - **Chaining (Closed Addressing)** : This process involves building a linked list with key–value pair for each search array index. The collided items are chained together through a single linked list, which can be traversed to access the item with a unique search key. Collision resolution through chaining with linked list is a common method of implementation of hash tables.
     
-    ![0e2c706.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/03b37491-b46a-417d-9af2-2ad03f6c729a/0e2c706.png)
+    ![hash_collision](./hash_collision.png)
     
     Different data structures for storing chains:
     
@@ -46,7 +46,7 @@ We can resolve the hash collision using one of the following techniques.
 - **Open Addressing**: It is another collision resolution technique in which every entry records are stored in the bucket array itself, and the hash resolution is performed through **probing**. When a new entry has to be inserted, the buckets are examined, starting with the hashed-to slot and proceeding in some *probe sequence*, until an unoccupied slot is found. When searching for an entry, the buckets are scanned in the same sequence, until either the target record is found, or an unused array slot is found, which indicates an unsuccessful search.
     - **Linear Probing :** Linear probing is when the interval between successive probes is fixed (usually to 1).
         
-        ![9c56c0d.jpg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/fa07a037-4a3f-4941-8214-b32ccc8acfa7/9c56c0d.jpg)
+        ![linear_probing](./linear_probing.jpg)
         
         Hash collision is resolved by open addressing with linear probing. Since **CodeMonk** and **Hashing** are hashed to the same index i.e. **2**, store **Hashing** at **3** as the interval between successive probes is **1**.
         

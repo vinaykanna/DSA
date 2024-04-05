@@ -4,7 +4,7 @@
 
 An Array is a collection of items of same data type stored at contiguous memory locations.
 
-![array-2.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/97ef25b0-7154-4e38-b247-34c834175baf/array-2.png)
+![Memory Allocation](./memory_alloc.png)
 
 This makes it easier to calculate the position of each element by simply adding an offset to base value, i.e., the memory location of the first element of the array.
 
@@ -23,7 +23,7 @@ Elements in an array can be stored in two ways.
 
 Arrays allows to access elements randomly. Elements in an array can be accessed using indexes. Suppose an array named **arr** stores N elements. Indexes in an array are in the range of **0 to N-1**, where the first element is present at 0-th index and consecutive elements are placed at consecutive indexes. Element present at ith index in the array **arr[]** can be accessed as arr[i].
 
-![Array-2.jpg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/80810db2-ab0b-4b7e-b7b6-9dd81ecaaec3/Array-2.jpg)
+![Access array elements](./arr_access.jpg)
 
 ### **Usage**
 
@@ -330,7 +330,7 @@ arr[row_index][column_index]
 
 The size of a 2D array is always equivalent to the product of the number of rows and the number of columns present in the array. Thus, we need to map two-dimensional arrays to one-dimensional arrays so as to store them in the memory.
 
-![0-1.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3301a766-9c47-4c3e-83c1-402119ffe415/0-1.png)
+![2D Array](./2d_arr.png)
 
 **There are 2 main techniques to map a two-dimensional array to one-dimensional array**
 
@@ -338,13 +338,13 @@ The size of a 2D array is always equivalent to the product of the number of rows
     1. In row-major ordering, all the rows of the two-dimensional array are stored in a contiguous manner in the memory.
     2. First, we insert elements of the 1st row of the 2D array into the memory, followed by the elements of the 2nd row and so on.
     
-    ![2.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/76521abe-ab8b-4bc6-b9ba-ee066e6ac491/2.png)
+    ![Row Major Ordering](./row_major.png)
     
 2. **Column Major Ordering:** 
     1. In column-major ordering, all the columns of the two-dimensional array are stored in a contiguous manner in the memory.
     2. First, we insert elements of the 1st column of the 2D array into the memory, followed by the elements of the 2nd column, and so on.
     
-    ![3.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9f0eb4c9-95ad-4962-9e64-f8d0e2be6391/3.png)
+    ![Column Major Ordering](./column_major.png)
     
 
 ### **Terminologies**

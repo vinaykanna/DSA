@@ -22,7 +22,7 @@ Recursion may not be efficient from computer point of view.
 
 ### Working of function calls (Understanding Call Stack)
 
-![Untitled-2022-09-07-2215.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e75a0079-7237-4d39-92dd-62b37e8c9723/Untitled-2022-09-07-2215.png)
+![callstack.png](./callstack.png)
 
 - When a function is not finished executing, it will remain in the stack.
 - When a function is finished executing, it’s removed from the stack, and the flow of the program is restored to where that function was called.
@@ -49,7 +49,7 @@ When base condition is reached, the function returns its value to the function b
 
 ### Visualizing Recursion (Recursion Tree)
 
-![Untitled-2022-09-07-2215.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c8ccf251-bff0-4e68-a468-c3c8d4ddbfe0/Untitled-2022-09-07-2215.png)
+![visual_callstack.png](./visual_callstack.png)
 
 ### **Example:** Find the nth Fibonacci number
 
@@ -69,7 +69,7 @@ $Fib(n) = fib(n-1) - fib(n-2)$ - **Recurrence Relation**
 
 **Recursion Tree:**
 
-![Untitled-2022-09-07-2215.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/20e87eb2-835d-4fa4-b7d0-c119f478af3d/Untitled-2022-09-07-2215.png)
+![fib_tree.png](./fib_tree.png)
 
 Usually the program gets executed from left to right. so until and unless the left part of the tree is done the right part of the tree is not executed.
 
@@ -213,10 +213,21 @@ Backtracking is an important tool for solving constraint satisfaction problems,
 
 Backtracking depends on user-given "black box procedures" that define the problem to be solved, the nature of the partial candidates, and how they are extended into complete candidates. It is therefore a metaheuristic rather than a specific algorithm – although, unlike many other meta-heuristics, it is guaranteed to find all solutions to a finite problem in a bounded amount of time.
 
-![ba-state-space-tree.webp](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2a8bef3c-07a9-4dd6-afcf-be85b8abe4df/ba-state-space-tree.webp)
+![ba-state-space-tree.webp](./ba-state-space-tree.webp)
 
 ### Types of backtracking algorithm
 
 1. **Decision Problem** - In this, we search for a feasible solution.
 2. **Optimization Problem -** In this, we search for the best solution.
 3. **Enumeration Problem -** In this, we find all feasible solutions.
+
+```tsx
+Backtrack(x)
+    if x is not a solution
+        return false
+    if x is a new solution
+        add to list of solutions
+    backtrack(expand x)
+```
+
+![backtracking_tree.png](./backtracking_tree.png)

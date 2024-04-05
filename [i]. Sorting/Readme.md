@@ -39,7 +39,7 @@ There are various sorting algorithms that can be used to complete this operation
 
 Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in the wrong order. This algorithm is not suitable for large data sets as its average and worst case time complexity is quite high.
 
-![Alt Text](https://upload.wikimedia.org/wikipedia/commons/c/c8/Bubble-sort-example-300px.gif)
+![Alt Text](./bubble_sort.gif)
 
 **Implementation :**
 
@@ -76,7 +76,7 @@ The selection sort algorithm sorts an array by repeatedly finding the minimum 
 
 In every iteration of selection sort, the minimum element (considering ascending order) from the unsorted subarray is picked and moved to the sorted subarray.
 
-!https://upload.wikimedia.org/wikipedia/commons/9/94/Selection-Sort-Animation.gif
+![Alt Text](./selection_sort.gif)
 
 **Implementation :**
 
@@ -114,7 +114,7 @@ Insertion sort is a simple sorting algorithm that works similar to the way you 
 - Basically, Insertion sort is efficient for small data values
 - Insertion sort is adaptive in nature, i.e. it is appropriate for data sets which are already partially sorted.
 
-!https://upload.wikimedia.org/wikipedia/commons/0/0f/Insertion-sort-example-300px.gif
+![Alt Text](./insertion_sort.gif)
 
 **Implementation :**
 
@@ -152,9 +152,9 @@ console.log(arr)
 
 Merge Sort is a Divide and Conquer algorithm. It divides the input array in two halves, calls itself for the two halves and then merges the two sorted halves. The merge() function ****is used for merging two halves. The merge(arr, l, m, r) is key process that assumes that arr[l..m] and arr[m+1..r] are sorted and merges the two sorted sub-arrays into one in a sorted manner.
 
-!https://upload.wikimedia.org/wikipedia/commons/c/cc/Merge-sort-example-300px.gif
+![Alt Text](./merge_sort1.gif)
 
-!https://upload.wikimedia.org/wikipedia/commons/e/e6/Merge_sort_algorithm_diagram.svg
+![Alt Text](./merge_sort2.svg)
 
 **Implementation - I:**
 
