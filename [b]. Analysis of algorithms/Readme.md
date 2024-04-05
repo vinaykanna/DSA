@@ -44,8 +44,6 @@ Time complexity defines how the program would behave as the order of size of inp
 
 So, time complexity is just a function of size of the input.
 
-![WhatsApp Image 2022-09-07 at 7.59.38 PM.jpeg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6ad5e398-8b49-459e-b35b-c2aaed6ebebd/WhatsApp_Image_2022-09-07_at_7.59.38_PM.jpeg)
-
 ## **Direct way to compare order of growths:**
 
 - Ignore lower order of terms
