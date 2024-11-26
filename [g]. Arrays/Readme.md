@@ -320,25 +320,25 @@ Pre-computation (or pre-calculation) is a powerful technique in array-based prob
 #### Key Concepts of Pre-computation in Array Problems
 
 1. Prefix Sum Array:
-  - Precompute the sum of elements from the beginning of the array up to each index.
-  - This allows us to efficiently calculate the sum of any subarray in constant time.
+    - Precompute the sum of elements from the beginning of the array up to each index.
+    - This allows us to efficiently calculate the sum of any subarray in constant time.
 2. Suffix Sum Array:
-  - Similar to prefix sum, but precompute the sum of elements from the end of the array up to each index.
+    - Similar to prefix sum, but precompute the sum of elements from the end of the array up to each index.
 3. Product Prefix Array:
-  - Precompute the product of elements from the beginning of the array up to each index.
+    - Precompute the product of elements from the beginning of the array up to each index.
 4. Product Suffix Array:
-  - Similar to product prefix, but precompute the product of elements from the end of the array up to each index.
+    - Similar to product prefix, but precompute the product of elements from the end of the array up to each index.
 5. Difference Array:
-  - Precompute the difference between elements from the beginning of the array up to each index.
+    - Precompute the difference between elements from the beginning of the array up to each index.
 6. Minimum/Maximum Prefix/Suffix Arrays:
-  - Precompute the minimum or maximum element in subarrays starting from the beginning or end of the array .
+    - Precompute the minimum or maximum element in subarrays starting from the beginning or end of the array .
 7. Hashing or Frequency Array
-  - Precompute the frequency of each element in the array.
+    - Precompute the frequency of each element in the array.
 8. Dynamic Programming:
-  - Precompute intermediate results to avoid redundant calculations in recursive or iterative solutions.
+    - Precompute intermediate results to avoid redundant calculations in recursive or iterative solutions.
 9. Sparse Table (Range Queries):
-  -  Efficiently compute range minimum/maximum/gcd in O(1) query time.
-  - Precompute a table of size (n log n) containing the minimum element in each subarray of size 2^i.
+    -  Efficiently compute range minimum/maximum/gcd in O(1) query time.
+    - Precompute a table of size (n log n) containing the minimum element in each subarray of size 2^i.
 
 Ex: Prefix sums can be used to calculate the sum of elements in a given range. If we wish to find out the sum of values between [L..R] we can obtain the sum by subtracting the prefix sum PreSum[R] by PreSum[L-1]
 
