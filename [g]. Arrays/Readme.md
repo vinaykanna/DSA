@@ -55,30 +55,78 @@ In programming, most of the cases need to store a large amount of data of a simi
 1. **Static Arrays** - Has the fixed size. It doesn’t resize itself when we add more elements.
 2. **Dynamic Arrays** - Has the dynamic size. It resize itself automatically when we add more elements.
 
-# Array Problem solving techniques
+# Multi-dimensional arrays
 
-## Kadane’s Algorithm
+A multi-dimensional array can be termed as an array of arrays that stores data in tabular form. Data in multidimensional arrays are stored in row-major order.
 
-**Kadane’s Algorithm** is an iterative **dynamic programming** algorithm. It calculates the maximum sum subarray ending at a particular position by using the maximum sum subarray ending at the previous position.
-
-The idea of **Kadane’s algorithm** is to maintain a variable **max_ending_here** that stores the maximum sum contiguous subarray ending at current index and a variable **max_so_far** stores the maximum sum of contiguous subarray found so far, Everytime there is a positive-sum value in **max_ending_here** compare it with **max_so_far** and update **max_so_far** if it is greater than **max_so_far**.
+The ***general form of declaring N-dimensional arrays*** is:
 
 ```tsx
-Initialize:
-    max_so_far = INT_MIN
-    max_ending_here = 0
-
-Loop for each element of the array
-
-  (a) max_ending_here = max_ending_here + a[i]
-  (b) if(max_so_far < max_ending_here)
-            max_so_far = max_ending_here
-  (c) if(max_ending_here < 0)
-            max_ending_here = 0
-return max_so_far
+data_type array_name[size1][size2]....[sizeN];
 ```
 
-**Kadane’s Algorithm** can be viewed both as greedy and DP. As we can see that we are keeping a running sum of integers and when it becomes less than 0, we reset it to 0 (Greedy Part). This is because continuing with a negative sum is way worse than restarting with a new range. Now it can also be viewed as a DP, at each stage we have 2 choices: Either take the current element and continue with the previous sum OR restart a new range. Both choices are being taken care of in the implementation.
+The total number of elements that can be stored in a multidimensional array can be calculated by multiplying the size of all the dimensions.
+
+```tsx
+The array int x[10][20] can store total (10*20) = 200 elements.
+The array int x[10][20] can store total (10*20) = 200 elements.
+```
+
+### **2D Array - Matrix**
+
+2 Dimensional arrays are often defined as an array of arrays. A 2D array is also called a matrix. A matrix can be depicted as a table of rows and columns.
+
+```tsx
+int arr[max_rows][max_columns];
+```
+
+As in a one-dimensional array, data can be accessed by using only an index, and similarly, in a two-dimensional array, we can access the cells individually by using the indices of the cells. There are two indices attached to a single cell, one is its row number, and the other one is its column number.
+
+```tsx
+arr[row_index][column_index]
+```
+
+****Mapping 2D to 1D array****
+
+2D arrays are mainly created to implement a database table that look alike data structure. Whilst in computer memory, the storage technique for 2D arrays is similar to that of one-dimensional arrays.
+
+The size of a 2D array is always equivalent to the product of the number of rows and the number of columns present in the array. Thus, we need to map two-dimensional arrays to one-dimensional arrays so as to store them in the memory.
+
+![2D Array](./2d_arr.png)
+
+**There are 2 main techniques to map a two-dimensional array to one-dimensional array**
+
+1. **Row Major Ordering:** 
+    1. In row-major ordering, all the rows of the two-dimensional array are stored in a contiguous manner in the memory.
+    2. First, we insert elements of the 1st row of the 2D array into the memory, followed by the elements of the 2nd row and so on.
+    
+    ![Row Major Ordering](./row_major.png)
+    
+2. **Column Major Ordering:** 
+    1. In column-major ordering, all the columns of the two-dimensional array are stored in a contiguous manner in the memory.
+    2. First, we insert elements of the 1st column of the 2D array into the memory, followed by the elements of the 2nd column, and so on.
+    
+    ![Column Major Ordering](./column_major.png)
+    
+
+### **Terminologies**
+
+- **Square Matrix:** A square Matrix has as many rows as it has columns. i.e. no of rows = no of columns.
+- **Symmetric matrix:** A square matrix is said to be symmetric if the transpose of original matrix is equal to its original matrix. i.e. (A) = A.
+- **Skew-symmetric:** A skew-symmetric (or antisymmetric or antimetric[1]) matrix is a square matrix whose transpose equals its negative. i.e. (A) = -A.
+- **Diagonal Matrix:** A diagonal matrix is a matrix in which the entries outside the main diagonal are all zero. The term usually refers to square matrices.
+- **Identity Matrix:** A square matrix in which all the elements of the principal diagonal are ones and all other elements are zeros. Identity matrix is denoted as I.
+- **Orthogonal Matrix:** A matrix is said to be orthogonal if AA = AA = I.
+- **Idempotent Matrix:** A matrix is said to be idempotent if A = A.
+- **Involutory Matrix:** A matrix is said to be Involutory if A = I.
+- **Singular Matrix**: A square matrix is said to be singular matrix if its determinant is zero i.e. |A|=0
+- **Nonsingular Matrix**: A square matrix is said to be non-singular matrix if its determinant is non-zero.
+
+Every Square Matrix can uniquely be expressed as the sum of a symmetric matrix and skew symmetric matrix. A = 1/2 (AT + A) + 1/2 (A - AT).
+
+**Trace of a matrix:** trace of a matrix is denoted as tr(A) which is used only for square matrix and equals the sum of the diagonal elements of the matrix
+
+# Array Problem solving techniques
 
 ## Two Pointers Approach
 
@@ -265,101 +313,64 @@ function maximumSum(nums:number[], k:number){
 console.log(maximumSum([10, 5, -2, 20, 1], 3))
 ```
 
-## Prefix Sum
+## Pre-computation (or pre-calculation)
 
-Prefix sum is the cumulative sum of a sequence of numbers a0, a1, ... . It is itself a sequence of numbers b0, b1, ... such that
+Pre-computation (or pre-calculation) is a powerful technique in array-based problem-solving where you preprocess the input to calculate intermediate results that can be reused multiple times during queries or computations. This helps reduce redundant calculations and speeds up the solution for multiple queries or operations.
 
-$PreSum_0 = a_0$
+#### Key Concepts of Pre-computation in Array Problems
 
-$PreSum_1 = a_0 + a_1 = PreSum_0 + a_1$
+1. Prefix Sum Array:
+  - Precompute the sum of elements from the beginning of the array up to each index.
+  - This allows us to efficiently calculate the sum of any subarray in constant time.
+2. Suffix Sum Array:
+  - Similar to prefix sum, but precompute the sum of elements from the end of the array up to each index.
+3. Product Prefix Array:
+  - Precompute the product of elements from the beginning of the array up to each index.
+4. Product Suffix Array:
+  - Similar to product prefix, but precompute the product of elements from the end of the array up to each index.
+5. Difference Array:
+  - Precompute the difference between elements from the beginning of the array up to each index.
+6. Minimum/Maximum Prefix/Suffix Arrays:
+  - Precompute the minimum or maximum element in subarrays starting from the beginning or end of the array .
+7. Hashing or Frequency Array
+  - Precompute the frequency of each element in the array.
+8. Dynamic Programming:
+  - Precompute intermediate results to avoid redundant calculations in recursive or iterative solutions.
+9. Sparse Table (Range Queries):
+  -  Efficiently compute range minimum/maximum/gcd in O(1) query time.
+  - Precompute a table of size (n log n) containing the minimum element in each subarray of size 2^i.
 
-$PreSum_2 = a_0 + a_1 + a_2 = PreSum_1 + a_2$
+Ex: Prefix sums can be used to calculate the sum of elements in a given range. If we wish to find out the sum of values between [L..R] we can obtain the sum by subtracting the prefix sum PreSum[R] by PreSum[L-1]
 
-$PreSum_n=PreSum_{n-1}+ a_n$
-
-Prefix sum operations can be generalized to any binary operator ⊕. Prefix sum operation takes a sequence of n elements [a
-
-0, a1, ..., an] and returns a sequence[a0, (a0⊕ a1) , ... , (a0⊕ a1⊕ a2... ⊕ an) ] containing the prefix sums.
-
-```tsx
+```js
 let inArr = [1,3,4,5,2,7,8,11]
 let PreSum = [1,4,8,13,15,22,30,41]
 ```
 
-Prefix sums can be used to calculate the sum of elements in a given range. If we wish to find out the sum of values between [L..R] we can obtain the sum by subtracting the prefix sum PreSum[R] by PreSum[L-1]
-
-```tsx
+```js
 Sum[L..R] = PreSum[R]-PreSum[L-1] { If L!=0 }
 Sum[L..R] = PreSum[R] { If L=0 }
 ```
 
-# Multi-dimensional arrays
+## Kadane’s Algorithm
 
-A multi-dimensional array can be termed as an array of arrays that stores data in tabular form. Data in multidimensional arrays are stored in row-major order.
+**Kadane’s Algorithm** is an iterative **dynamic programming** algorithm. It calculates the maximum sum subarray ending at a particular position by using the maximum sum subarray ending at the previous position.
 
-The ***general form of declaring N-dimensional arrays*** is:
-
-```tsx
-data_type array_name[size1][size2]....[sizeN];
-```
-
-The total number of elements that can be stored in a multidimensional array can be calculated by multiplying the size of all the dimensions.
+The idea of **Kadane’s algorithm** is to maintain a variable **max_ending_here** that stores the maximum sum contiguous subarray ending at current index and a variable **max_so_far** stores the maximum sum of contiguous subarray found so far, Everytime there is a positive-sum value in **max_ending_here** compare it with **max_so_far** and update **max_so_far** if it is greater than **max_so_far**.
 
 ```tsx
-The array int x[10][20] can store total (10*20) = 200 elements.
-The array int x[10][20] can store total (10*20) = 200 elements.
+Initialize:
+    max_so_far = INT_MIN
+    max_ending_here = 0
+
+Loop for each element of the array
+
+  (a) max_ending_here = max_ending_here + a[i]
+  (b) if(max_so_far < max_ending_here)
+            max_so_far = max_ending_here
+  (c) if(max_ending_here < 0)
+            max_ending_here = 0
+return max_so_far
 ```
 
-### **2D Array - Matrix**
-
-2 Dimensional arrays are often defined as an array of arrays. A 2D array is also called a matrix. A matrix can be depicted as a table of rows and columns.
-
-```tsx
-int arr[max_rows][max_columns];
-```
-
-As in a one-dimensional array, data can be accessed by using only an index, and similarly, in a two-dimensional array, we can access the cells individually by using the indices of the cells. There are two indices attached to a single cell, one is its row number, and the other one is its column number.
-
-```tsx
-arr[row_index][column_index]
-```
-
-****Mapping 2D to 1D array****
-
-2D arrays are mainly created to implement a database table that look alike data structure. Whilst in computer memory, the storage technique for 2D arrays is similar to that of one-dimensional arrays.
-
-The size of a 2D array is always equivalent to the product of the number of rows and the number of columns present in the array. Thus, we need to map two-dimensional arrays to one-dimensional arrays so as to store them in the memory.
-
-![2D Array](./2d_arr.png)
-
-**There are 2 main techniques to map a two-dimensional array to one-dimensional array**
-
-1. **Row Major Ordering:** 
-    1. In row-major ordering, all the rows of the two-dimensional array are stored in a contiguous manner in the memory.
-    2. First, we insert elements of the 1st row of the 2D array into the memory, followed by the elements of the 2nd row and so on.
-    
-    ![Row Major Ordering](./row_major.png)
-    
-2. **Column Major Ordering:** 
-    1. In column-major ordering, all the columns of the two-dimensional array are stored in a contiguous manner in the memory.
-    2. First, we insert elements of the 1st column of the 2D array into the memory, followed by the elements of the 2nd column, and so on.
-    
-    ![Column Major Ordering](./column_major.png)
-    
-
-### **Terminologies**
-
-- **Square Matrix:** A square Matrix has as many rows as it has columns. i.e. no of rows = no of columns.
-- **Symmetric matrix:** A square matrix is said to be symmetric if the transpose of original matrix is equal to its original matrix. i.e. (A) = A.
-- **Skew-symmetric:** A skew-symmetric (or antisymmetric or antimetric[1]) matrix is a square matrix whose transpose equals its negative. i.e. (A) = -A.
-- **Diagonal Matrix:** A diagonal matrix is a matrix in which the entries outside the main diagonal are all zero. The term usually refers to square matrices.
-- **Identity Matrix:** A square matrix in which all the elements of the principal diagonal are ones and all other elements are zeros. Identity matrix is denoted as I.
-- **Orthogonal Matrix:** A matrix is said to be orthogonal if AA = AA = I.
-- **Idempotent Matrix:** A matrix is said to be idempotent if A = A.
-- **Involutory Matrix:** A matrix is said to be Involutory if A = I.
-- **Singular Matrix**: A square matrix is said to be singular matrix if its determinant is zero i.e. |A|=0
-- **Nonsingular Matrix**: A square matrix is said to be non-singular matrix if its determinant is non-zero.
-
-Every Square Matrix can uniquely be expressed as the sum of a symmetric matrix and skew symmetric matrix. A = 1/2 (AT + A) + 1/2 (A - AT).
-
-**Trace of a matrix:** trace of a matrix is denoted as tr(A) which is used only for square matrix and equals the sum of the diagonal elements of the matrix
+**Kadane’s Algorithm** can be viewed both as greedy and DP. As we can see that we are keeping a running sum of integers and when it becomes less than 0, we reset it to 0 (Greedy Part). This is because continuing with a negative sum is way worse than restarting with a new range. Now it can also be viewed as a DP, at each stage we have 2 choices: Either take the current element and continue with the previous sum OR restart a new range. Both choices are being taken care of in the implementation.
